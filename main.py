@@ -5,11 +5,21 @@ from PIL import Image
 from altair.vegalite.v3.theme import theme
 
 st.set_page_config(page_title='FEVEREIRO 2023')
-st.title(':red[TOP RESOLVE FEVEREIRO]')
+st.title(':red[RESOLVE FEVEREIRO]')
 
 #leitura do excel, transformar em data frame
 file = pd.read_excel('jogo.xlsx')
 filepontos = pd.read_excel('jogo.xlsx', sheet_name='tabelapontos')
+
+img0 = Image.open('img0.png')
+img1 = Image.open('img1.png')
+img2 = Image.open('img2.png')
+img3 = Image.open('img3.png')
+img4 = Image.open('img4.png')
+img5 = Image.open('img5.png')
+img6 = Image.open('img6.png')
+img7 = Image.open('img7.png')
+
 df = pd.DataFrame(file)
 dfp = pd.DataFrame(filepontos)
 dfp = dfp.convert_dtypes(convert_string=True)
@@ -107,44 +117,56 @@ bar_pforcados = px.bar(pforcados.T,
              y='P. Forçados em falta')
 
 
-lista_graficos = list(df.columns.values)
-lista_graficos.pop(0)
 
 
-result = st.selectbox('Escolhe um grafico', lista_graficos)
+col1, col2 = st.columns(2)
 
-if result == "Pontos Totais":
-    st.plotly_chart(bar_total)
-if result == 'C. Base':
-    st.plotly_chart(bar_cbase)
-if result == 'C. Essencial':
-    st.plotly_chart(bar_cessencial)
-if result == 'C. Total':
-    st.plotly_chart(bar_ctotal)
-if result == 'C. Total +':
-    st.plotly_chart(bar_ctotalmais)
-if result == 'Tech Mensal':
-    st.plotly_chart(bar_techmensal)
-if result == 'Tech Anual':
-    st.plotly_chart(bar_techanual)
-if result == 'Ext. Garantia Resolve':
-    st.plotly_chart(bar_extgar)
-if result == 'Euip. Com testes feitos':
-    st.plotly_chart(bar_eqtestes)
-if result == 'W. Safe':
-    st.plotly_chart(bar_wsafe)
-if result == 'S/ fatura, fatura incorrecta ou ilegível':
-    st.plotly_chart(bar_errfatura)
-if result == 'Falha na descrição física':
-    st.plotly_chart(bar_falhadescfis)
-if result == 'Falha na descrição de acessórios':
-    st.plotly_chart(bar_falhadescacess)
-if result == 'Falta de nro de série':
-    st.plotly_chart(bar_falhanumser)
-if result == 'Subst <30 dias incorrecta':
-    st.plotly_chart(bar_errsubst)
-if result == 'P. Forçados em falta':
-    st.plotly_chart(bar_pforcados)
+
+with col1:
+
+    st.title(':red[Nº1 ATUAL]')
+    st.image(img0)
+
+with col2:
+
+    lista_graficos = list(df.columns.values)
+    lista_graficos.pop(0)
+
+
+    result = st.selectbox('Escolhe um grafico', lista_graficos)
+
+    if result == "Pontos Totais":
+        st.plotly_chart(bar_total)
+    if result == 'C. Base':
+        st.plotly_chart(bar_cbase)
+    if result == 'C. Essencial':
+        st.plotly_chart(bar_cessencial)
+    if result == 'C. Total':
+        st.plotly_chart(bar_ctotal)
+    if result == 'C. Total +':
+        st.plotly_chart(bar_ctotalmais)
+    if result == 'Tech Mensal':
+        st.plotly_chart(bar_techmensal)
+    if result == 'Tech Anual':
+        st.plotly_chart(bar_techanual)
+    if result == 'Ext. Garantia Resolve':
+        st.plotly_chart(bar_extgar)
+    if result == 'Euip. Com testes feitos':
+        st.plotly_chart(bar_eqtestes)
+    if result == 'W. Safe':
+        st.plotly_chart(bar_wsafe)
+    if result == 'S/ fatura, fatura incorrecta ou ilegível':
+        st.plotly_chart(bar_errfatura)
+    if result == 'Falha na descrição física':
+        st.plotly_chart(bar_falhadescfis)
+    if result == 'Falha na descrição de acessórios':
+        st.plotly_chart(bar_falhadescacess)
+    if result == 'Falta de nro de série':
+        st.plotly_chart(bar_falhanumser)
+    if result == 'Subst <30 dias incorrecta':
+        st.plotly_chart(bar_errsubst)
+    if result == 'P. Forçados em falta':
+        st.plotly_chart(bar_pforcados)
 
 
 
