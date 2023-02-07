@@ -11,7 +11,7 @@ st.title(':red[RESOLVE FEVEREIRO]')
 file = pd.read_excel('jogo.xlsx')
 filepontos = pd.read_excel('jogo.xlsx', sheet_name='tabelapontos')
 
-img0 = Image.open('img0.png')
+img0 = Image.open('henrique.bmp')
 img1 = Image.open('img1.png')
 img2 = Image.open('img2.png')
 img3 = Image.open('img3.png')
