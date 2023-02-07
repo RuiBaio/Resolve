@@ -125,7 +125,7 @@ col1, col2 = st.columns(2)
 with col1:
 
     st.title(':red[Nº1 ATUAL]')
-    st.image(img0, caption="Com muita calma")
+    st.image(img0, caption=':green[Com muita calma]')
 
 with col2:
 
