@@ -12,7 +12,7 @@ file = pd.read_excel('jogo.xlsx')
 filepontos = pd.read_excel('jogo.xlsx', sheet_name='tabelapontos')
 
 img0 = Image.open('henrique.bmp') #Com muita calma
-img1 = Image.open('img1.png') 
+img1 = Image.open('domingos.jpg') #Baui
 img2 = Image.open('img2.png')
 img3 = Image.open('img3.png')
 img4 = Image.open('img4.png')
@@ -125,7 +125,7 @@ col1, col2 = st.columns(2)
 with col1:
 
     st.title(':red[Nº1 ATUAL]')
-    st.image(img0, caption='Com muita calma')
+    st.image(img1, caption='Baui')
 
 with col2:
 
